@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:fontFamily="serif-monospace"
+                android:textSize="22sp"
+                android:text="One Translator"
+                android:textColor="@color/white"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_marginHorizontal="10dp">
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detect"
+                    android:gravity="center"
+                    android:fontFamily="monospace"
+                    android:paddingVertical="10dp"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="15dp"
+                    android:textStyle="bold"
+                    android:background="@drawable/strock"
+                    android:textColor="@color/white"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/next"
+                    app:tint="@color/teal_200"
+                    android:layout_marginHorizontal="15dp"/>
+
+                <TextView
+                    android:id="@+id/target_lan_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="English"
+                    android:gravity="center"
+                    android:fontFamily="monospace"
+                    android:paddingVertical="10dp"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="15dp"
+                    android:textStyle="bold"
+                    android:background="@drawable/strock"
+                    android:textColor="@color/white"
+                    app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+
+            </LinearLayout>
+
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="30dp"
+                app:cardBackgroundColor="@color/dark_mode_rose"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="15dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
+                        android:text="Start Translate"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/edit_text"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@android:color/transparent"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="serif"
+                        android:inputType="textMultiLine"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="50000"
+                        app:counterTextColor="@color/white"
+                        app:errorEnabled="true"
+                        app:errorTextColor="@color/white"
+                        app:hintEnabled="true"
+                        app:hintTextColor="@color/white">
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:backgroundTint="@android:color/transparent"
+                            android:fontFamily="serif"
+                            android:hint="Type your words here..."
+                            android:inputType="textMultiLine"
+                            android:maxLength="50000"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="serif-monospace"
+                        android:text="Translate"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/dark_mode_lite"
+                        app:cornerRadius="50dp" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="30dp"
+                        android:fontFamily="serif"
+                        android:gravity="center_horizontal"
+                        android:lineSpacingExtra="1dp"
+                        android:text="Here you can translate between over 50 languages. If you are using a language for the first time in this application, you will need to download the required libraries. Therefore, having an internet connection is essential if you are using it for the first time"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="30dp"
+                app:cardBackgroundColor="@color/dark_mode_rose"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="15dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
+                        android:text="Your Result"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+
+
+
+
+                    <TextView
+                        android:id="@+id/result"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="serif"
+                        android:gravity="center_horizontal"
+                        android:lineSpacingExtra="1dp"
+                        android:text="No result available right now. Please select your language and after type your words. After that click translate button. Finally you can see magic here."
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="serif-monospace"
+                        android:text="Copy to clipboard"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:backgroundTint="@color/dark_mode_lite"
+                        app:cornerRadius="50dp" />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:src="@drawable/header_transparent"
+        app:tint="@color/dark_mode_lite"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"/>
+
+
+
+</RelativeLayout>
