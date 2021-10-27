@@ -15,18 +15,14 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.mlkit.common.model.DownloadConditions;
 import com.google.mlkit.common.model.RemoteModelManager;
 import com.google.mlkit.nl.languageid.LanguageIdentification;
 import com.google.mlkit.nl.languageid.LanguageIdentifier;
-import com.google.mlkit.nl.translate.TranslateLanguage;
 import com.google.mlkit.nl.translate.TranslateRemoteModel;
 import com.google.mlkit.nl.translate.Translation;
 import com.google.mlkit.nl.translate.Translator;
@@ -38,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
     TextInputLayout edit_text;
     TextView result, status, target_lan_tv;
     String source_text;
-    LinearLayout load;
-    ImageView donate,help,delete_iv;
-    Animation fade_in,fade_out;
+    LinearLayout load, lan_pop;
+    ImageView donate, help, delete_iv;
+    Animation fade_in, fade_out;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +50,14 @@ public class MainActivity extends AppCompatActivity {
         target_lan_tv = findViewById(R.id.target_lan_tv);
         load = findViewById(R.id.load);
         copy = findViewById(R.id.copy);
+        lan_pop = findViewById(R.id.lan_pop);
 
         donate = findViewById(R.id.donate);
         help = findViewById(R.id.help);
         delete_iv = findViewById(R.id.delete_iv);
 
-        fade_in = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_in_bottom);
-        fade_out = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_out_bottom);
+        fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_in_bottom);
+        fade_out = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_out_bottom);
 
         help.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -75,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         target_lan_tv.setOnClickListener(v -> {
-            PopupMenu popupMenu = new PopupMenu(MainActivity.this, btn);
+            PopupMenu popupMenu = new PopupMenu(MainActivity.this, lan_pop);
             popupMenu.getMenuInflater().inflate(R.menu.lan, popupMenu.getMenu());
             popupMenu.show();
             popupMenu.setOnMenuItemClickListener(item -> {
@@ -93,6 +90,140 @@ public class MainActivity extends AppCompatActivity {
             clipboardManager.setPrimaryClip(clipData);
 
             Toast.makeText(MainActivity.this, "Successfully Copied To Clipboard", Toast.LENGTH_SHORT).show();
+        });
+
+        delete_iv.setOnClickListener(v -> {
+            PopupMenu popupMenu = new PopupMenu(MainActivity.this, lan_pop);
+            popupMenu.getMenuInflater().inflate(R.menu.lan, popupMenu.getMenu());
+            popupMenu.show();
+            popupMenu.setOnMenuItemClickListener(item -> {
+
+                String target_tv_string = item.getTitle().toString();
+
+                if (target_tv_string.equals("Afrikaans")) {
+                    delete("af");
+                } else if (target_tv_string.equals("Arabic")) {
+                    delete("ar");
+                } else if (target_tv_string.equals("Belarusian")) {
+                    delete("be");
+                } else if (target_tv_string.equals("Bulgarian")) {
+                    delete("bg");
+                } else if (target_tv_string.equals("Bengali")) {
+                    delete("bn");
+                } else if (target_tv_string.equals("Catalan")) {
+                    delete("ca");
+                } else if (target_tv_string.equals("Czech")) {
+                    delete("cs");
+                } else if (target_tv_string.equals("Welsh")) {
+                    delete("cy");
+                } else if (target_tv_string.equals("Danish")) {
+                    delete("da");
+                } else if (target_tv_string.equals("German")) {
+                    delete("de");
+                } else if (target_tv_string.equals("Greek")) {
+                    delete("el");
+                } else if (target_tv_string.equals("English")) {
+                    delete("en");
+                } else if (target_tv_string.equals("Esperanto")) {
+                    delete("eo");
+                } else if (target_tv_string.equals("Spanish")) {
+                    delete("es");
+                } else if (target_tv_string.equals("Estonian")) {
+                    delete("et");
+                } else if (target_tv_string.equals("Persian")) {
+                    delete("fa");
+                } else if (target_tv_string.equals("Finnish")) {
+                    delete("fi");
+                } else if (target_tv_string.equals("French")) {
+                    delete("fr");
+                } else if (target_tv_string.equals("Irish")) {
+                    delete("ga");
+                } else if (target_tv_string.equals("Galician")) {
+                    delete("gl");
+                } else if (target_tv_string.equals("Gujarati")) {
+                    delete("gu");
+                } else if (target_tv_string.equals("Hebrew")) {
+                    delete("he");
+                } else if (target_tv_string.equals("Hindi")) {
+                    delete("hi");
+                } else if (target_tv_string.equals("Croatian")) {
+                    delete("hr");
+                } else if (target_tv_string.equals("Haitian")) {
+                    delete("ht");
+                } else if (target_tv_string.equals("Hungarian")) {
+                    delete("hu");
+                } else if (target_tv_string.equals("Indonesian")) {
+                    delete("id");
+                } else if (target_tv_string.equals("Icelandic")) {
+                    delete("is");
+                } else if (target_tv_string.equals("Italian")) {
+                    delete("it");
+                } else if (target_tv_string.equals("Japanese")) {
+                    delete("ja");
+                } else if (target_tv_string.equals("Georgian")) {
+                    delete("ka");
+                } else if (target_tv_string.equals("Kannada")) {
+                    delete("kn");
+                } else if (target_tv_string.equals("Korean")) {
+                    delete("ko");
+                } else if (target_tv_string.equals("Lithuanian")) {
+                    delete("lt");
+                } else if (target_tv_string.equals("Latvian")) {
+                    delete("fr");
+                } else if (target_tv_string.equals("Macedonian")) {
+                    delete("mk");
+                } else if (target_tv_string.equals("Marathi")) {
+                    delete("mr");
+                } else if (target_tv_string.equals("Malay")) {
+                    delete("ms");
+                } else if (target_tv_string.equals("Maltese")) {
+                    delete("mt");
+                } else if (target_tv_string.equals("Dutch")) {
+                    delete("nl");
+                } else if (target_tv_string.equals("Norwegian")) {
+                    delete("no");
+                } else if (target_tv_string.equals("Polish")) {
+                    delete("pl");
+                } else if (target_tv_string.equals("Portuguese")) {
+                    delete("pt");
+                } else if (target_tv_string.equals("Romanian")) {
+                    delete("ro");
+                } else if (target_tv_string.equals("Russian")) {
+                    delete("ru");
+                } else if (target_tv_string.equals("Slovak")) {
+                    delete("sk");
+                } else if (target_tv_string.equals("Slovenian")) {
+                    delete("sl");
+                } else if (target_tv_string.equals("Albanian")) {
+                    delete("sq");
+                } else if (target_tv_string.equals("Swedish")) {
+                    delete("sv");
+                } else if (target_tv_string.equals("Swahili")) {
+                    delete("sw");
+                } else if (target_tv_string.equals("Tamil")) {
+                    delete("ta");
+                } else if (target_tv_string.equals("Telugu")) {
+                    delete("te");
+                } else if (target_tv_string.equals("Thai")) {
+                    delete("th");
+                } else if (target_tv_string.equals("Tagalog")) {
+                    delete("tl");
+                } else if (target_tv_string.equals("Turkish")) {
+                    delete("tr");
+                } else if (target_tv_string.equals("Ukrainian")) {
+                    delete("uk");
+                } else if (target_tv_string.equals("Urdu")) {
+                    delete("ur");
+                } else if (target_tv_string.equals("Vietnamese")) {
+                    delete("vi");
+                } else if (target_tv_string.equals("Chinese")) {
+                    delete("zh");
+                } else {
+                    Toast.makeText(getApplicationContext(), "Try another language", Toast.LENGTH_SHORT).show();
+                }
+
+                return true;
+            });
         });
 
         btn.setOnClickListener(v -> {
@@ -283,15 +414,15 @@ public class MainActivity extends AppCompatActivity {
         RemoteModelManager modelManager = RemoteModelManager.getInstance();
 
         // Delete the German model if it's on the device.
-        TranslateRemoteModel germanModel = new TranslateRemoteModel.Builder(del).build();
-        modelManager.deleteDownloadedModel(germanModel).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(@NonNull Void unused) {
-                Toast.makeText(getApplicationContext(), "Successfully deleted library", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(e -> {
+        TranslateRemoteModel Model = new TranslateRemoteModel.Builder(del).build();
+
+        modelManager.deleteDownloadedModel(Model).
+                addOnSuccessListener(unused ->
+                Toast.makeText(getApplicationContext(), "Successfully deleted.next time downloading is mandatory", Toast.LENGTH_SHORT).show())
+
+                .addOnFailureListener(e -> {
             // Error.
-            Toast.makeText(getApplicationContext(), "Fail to deleted library", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Fail to deleted library.try another language", Toast.LENGTH_SHORT).show();
 
         });
 

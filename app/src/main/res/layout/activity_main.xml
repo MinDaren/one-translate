@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -21,19 +20,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
 
                 <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                android:fontFamily="serif-monospace"
-                android:textSize="22sp"
-                android:text="One Translator"
-                android:textColor="@color/white"/>
+                    android:fontFamily="serif-monospace"
+                    android:text="One Translator"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/donate"
@@ -59,57 +58,62 @@
                     android:src="@drawable/ic_delete"
                     app:tint="@color/white" />
 
-        </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:layout_marginHorizontal="10dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Detect"
-                    android:gravity="center"
-                    android:fontFamily="monospace"
-                    android:paddingVertical="10dp"
                     android:layout_weight="1"
-                    android:paddingHorizontal="15dp"
-                    android:textStyle="bold"
                     android:background="@drawable/strock"
-                    android:textColor="@color/white"/>
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="10dp"
+                    android:text="Detect"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_marginHorizontal="15dp"
                     android:src="@drawable/next"
-                    app:tint="@color/teal_200"
-                    android:layout_marginHorizontal="15dp"/>
+                    app:tint="@color/teal_200" />
 
                 <TextView
                     android:id="@+id/target_lan_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="English"
-                    android:gravity="center"
-                    android:fontFamily="monospace"
-                    android:paddingVertical="10dp"
                     android:layout_weight="1"
-                    android:paddingHorizontal="15dp"
-                    android:textStyle="bold"
                     android:background="@drawable/strock"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:paddingHorizontal="15dp"
+                    android:paddingVertical="10dp"
+                    android:text="English"
                     android:textColor="@color/white"
+                    android:textStyle="bold"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+                <LinearLayout
+                    android:id="@+id/lan_pop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>
 
 
             </LinearLayout>
-
-
-
 
 
             <androidx.cardview.widget.CardView
@@ -246,9 +250,6 @@
                         android:visibility="visible" />
 
 
-
-
-
                     <TextView
                         android:id="@+id/result"
                         android:layout_width="match_parent"
@@ -289,14 +290,13 @@
     </ScrollView>
 
 
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:src="@drawable/header_transparent"
-        app:tint="@color/dark_mode_lite"
         android:layout_alignParentTop="true"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        android:src="@drawable/header_transparent"
+        app:tint="@color/dark_mode_lite" />
 
 
     <LinearLayout
@@ -306,15 +306,15 @@
         android:background="@drawable/gradient"
         android:backgroundTint="@color/black"
         android:gravity="bottom"
-        android:visibility="gone"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="50dp"
-            android:layout_gravity="center_horizontal"
             app:cardElevation="15dp">
 
 
@@ -333,46 +333,45 @@
 
         </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:gravity="bottom"
-        android:orientation="vertical">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="25dp"
-            android:fontFamily="serif-monospace"
-            android:text="Please wait..."
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="15dp"
-            android:fontFamily="serif"
-            android:gravity="center_horizontal"
-            android:lineSpacingExtra="1dp"
-            android:text="If you are using a language for the first time, we will need to download the required libraries. Therefore, having an internet connection is essential.It make couple of time"
-            android:textColor="@color/white"
-            android:textSize="13sp"
-            android:textStyle="normal" />
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="serif-monospace"
+                android:gravity="center"
+                android:text="Please wait..."
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="serif"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="1dp"
+                android:text="If you are using a language for the first time, we will need to download the required libraries. Therefore, having an internet connection is essential.It make couple of time"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
-
-
-    </LinearLayout>
-
 
 
 </RelativeLayout>
